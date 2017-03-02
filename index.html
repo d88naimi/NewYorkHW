@@ -1,38 +1,55 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
+
 <html>
 <head>
 	<title>NYT</title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="assets/css/reset.css" />
+	
 </head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<header class = "Nancy">
-		<h1>NEW YORK TIMES</h1>
-	</header>
+	
 <body>
+<style type="text/css">
+	
+body{
+	text-align: center;
+}
+
+</style>
+
 	<section>
-		<div class = "panel panel-default" id= "wrap">
-		<div class = "Bob">
-		<p>Search Term: 
-		<br>
-		<input type="text" id="searchTerm"><br></p>
-		<p>Start Year:
-		<br>
-		<input type="text" id="startYear"><br></p>
-		<p>End Year:
-		<br>
-		<input type="text" id="endYear"><br>
-		</p>
-		<br>
-		<button type="button" class="btn btn-primary" id="searchButton" data-toggle="modal" data-target=".bs-example-modal-lg">Search</button>
+		<div class="jumbotron">
+      <h1 class="text-center">New York Times </h1>
+    </div>
+	 <form role="form">
+              <div class="form-group">
+                <label for="search-input">Search Term:</label>
+                <input class="form-control" id="search-input" type="text">
+              </div>
+              <div class="form-group">
+                <label for="start-input">Start Year:</label>
+                <input class="form-control" id="start-input" type="number">
+              </div>
+              <div class="form-group">
+                <label for="end-input">End Year:</label>
+                <input class="form-control" id="end-input" type="number">
+              </div>
+              <div class="form-group">
+                <label for="records-input">Number of Records (MAX 10) :</label>
+                <input class="form-control" id="records-input" type="number">
+              </div>
+
+
+		<button type="button" class="btn btn-primary btn-lg" id="searchButton" data-toggle="modal" data-target=".bs-example-modal-lg">Search</button>
 		</div>
-		<br>
-		<div id= "resultsDiv" class = "panel panel-default">
-		</div>	
+
+			<br>
+			<div id= "('id', 'articleWell-' + articleCounter)" class = "panel panel-default">
+			</div>
+
 		</div>
 	</section>
-		<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-  <script type="text/javascript" src="assets/javascript/stuff.js"></script>
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="assets/nytimes.js"></script>
 </body>
 </html>
