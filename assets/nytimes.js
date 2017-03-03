@@ -3,29 +3,25 @@ $("#searchButton").on("click", function(event){
 	event.preventDefault();
 	var term= $("#search-input").val().trim();
 	var recordsRequested= $("#records-input").val();
-	var startYear=$("#start-input").val().trim().toString();
-	var endYear=$("#end-input").val().trim().toString();
+	var startYear=$("#start-input").val().trim();
+	var endYear=$("#end-input").val().trim();
 	var word= encodeURI(term);
-	var January="0101";
-	var December="1231";
+	
 
-	if(startYear===""){
-		startYear="20000101";
-	}
-	else{
-		// concatonates the month and day to match the requested date format for the API
-		startYear.concat(January);
-	}
-	if(endYear===""){
-		endYear="20171231";
-	}
-	else{
-		endYear.concat(December);
-	}
+		if (parseInt(startYear)) {
+			queryURL = queryURL + "&begin_date=" + startYear + "0101";
+		}
 
-	var authKey= "b9f91d369ff59547cd47b931d8cbc56b:0:74623931";
+		// If the user provides a startYear -- the endYear will be included in the queryURL
+		if (parseInt(endYear)) {
+			queryURL = queryURL + "&end_date=" + endYear + "0101";
+		};
+
+	var authKey= "45ae6c35b10b457cbd8fd3541a4afc7d";
+
 	var queryURL= "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" +
-	authKey + "&q="+word+"&begin_date="+startYear+"&end_date="+endYear+"&hl=true";
+	authKey; 
+	//+ "&q="+word+"&begin_date="+startYear+"&end_date="+endYear+"&hl=true";
 
 	$.ajax({
 		url: queryURL,
@@ -57,4 +53,7 @@ $("#searchButton").on("click", function(event){
 	});
 });
 
+$('#clearButton').on('click', function(){
+	$("#articles").empty();
+})
 			
