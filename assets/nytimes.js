@@ -8,31 +8,26 @@ $("#searchButton").on("click", function(event){
 	var word= encodeURI(term);
 	
 
-		if (parseInt(startYear)) {
-			queryURL = queryURL + "&begin_date=" + startYear + "0101";
-		}
-
-		// If the user provides a startYear -- the endYear will be included in the queryURL
-		if (parseInt(endYear)) {
-			queryURL = queryURL + "&end_date=" + endYear + "0101";
-		};
 
 	var authKey= "45ae6c35b10b457cbd8fd3541a4afc7d";
 
-	var queryURL= "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" +
-	authKey; 
-	//+ "&q="+word+"&begin_date="+startYear+"&end_date="+endYear+"&hl=true";
+	var queryURL= "http://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + authKey
+	 + "&q="+word;
+	 // + "?begin_date=19500101" + "?end_date=20170101";
+	
+	//+"&begin_date="+startYear+"&end_date="+endYear+"&hl=true";
 
 	$.ajax({
 		url: queryURL,
 		method: "GET"
 		}).done(function(responseNY) {
 		var results= responseNY.response.docs;
+		console.log(responseNY);
 		// empty container to avoid duplicate results
 		$("#articles").empty();
 		for (i=0; i< recordsRequested; i++){
 			var articleDiv = $("<div class ='results'>");
-			var title = $("<a class='healineAnchor'>").text( i + 1 + "." + results[i].headline.main);
+			var title = $("<a class='headlineAnchor'>").text( i + 1 + "." + results[i].headline.main);
 			title.attr("href", results[i].web_url);
 			title.attr("target", "_blank");
 			var lineBreak = $("<br>");
