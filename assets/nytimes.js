@@ -3,19 +3,18 @@ $("#searchButton").on("click", function(event){
 	event.preventDefault();
 	var term= $("#search-input").val().trim();
 	var recordsRequested= $("#records-input").val();
-	var startYear=$("#start-input").val().trim();
-	var endYear=$("#end-input").val().trim();
+	var startYear=$("#start").val().trim();
+	var endYear=$("#end").val().trim();
 	var word= encodeURI(term);
-	
+
 
 
 	var authKey= "45ae6c35b10b457cbd8fd3541a4afc7d";
-
+	// working begin & end date
 	var queryURL= "http://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + authKey
-	 + "&q="+word;
-	 // + "?begin_date=19500101" + "?end_date=20170101";
-	
-	//+"&begin_date="+startYear+"&end_date="+endYear+"&hl=true";
+	 + "&q="+ word + "&begin_date=" + startYear + "0101"+ "&end_date=" + endYear + "0101" + "&hl=true";
+	  
+	 
 
 	$.ajax({
 		url: queryURL,
