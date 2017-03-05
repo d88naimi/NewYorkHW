@@ -11,7 +11,7 @@ $("#searchButton").on("click", function(event){
 
 	var authKey= "45ae6c35b10b457cbd8fd3541a4afc7d";
 	// working begin & end date
-	var queryURL= "http://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + authKey
+	var queryURL= "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + authKey
 	 + "&q="+ word + "&begin_date=" + startYear + "0101"+ "&end_date=" + endYear + "0101" + "&hl=true";
 	  
 	 
